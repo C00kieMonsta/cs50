@@ -1,0 +1,48 @@
+0.  What is pneumonoultramicroscopicsilicovolcanoconiosis?
+    It refers to a lung disease.
+
+
+1.  According to its man page, what does getrusage do?
+    It gets information about resource utilization. Getrusage() returns information describing 
+    the resources utilized by the current process, or all its terminated child processes. 
+
+2.  Per that same man page, how many members are in a variable of type struct rusage?
+    16 members
+
+3.  Why do you think we pass before and after by reference (instead of by value) to calculate, 
+even though we’re not changing their contents?
+    Because the struct rusage contains a lot of members, so it's easier to pass a pointer containing the
+    adress of the struct.
+
+
+4.  Explain as precisely as possible, in a paragraph or more, how main goes about reading words from a file.
+ In other words, convince us that you indeed understand how that function’s for loop works.
+    The integer c gets the character of each word in the file text until it reaches the end of the file (EOF).
+    Each character is added to a new word until the null character is reached. Than a new word is created 
+    and so on.
+ 
+ 
+5.  Why do you think we used fgetc to read each word’s characters one at a time rather than use fscanf with 
+a format string like "%s" to read whole words at a time? Put another way, what problems might arise by relying on fscanf alone?
+    If we don't use fgetc, the program wont be able to verify if the word contains a digit.
+
+6.  Why do you think we declared the parameters for check and load as const?
+    Because he goal is not to change the content of the dictionary it has to be fixed.
+
+
+7.  What data structure(s) did you use to implement your spell-checker? Be sure not to leave your answer at just "hash table," "trie," 
+or the like. Expound on what’s inside each of your "nodes."
+    I used a hash function which I first initialized each element of my array to NULL. The hash function tells
+    where to put the word and I also use a linked list to prevent collsions
+
+8.  How slow was your code the first time you got it working correctly?
+    O(n)
+
+
+9.  What kinds of changes, if any, did you make to your code in order to improve its performance?
+    First I didn't sorted my linked list but I decided to inseret each node such as each linked list was sorted.
+
+10. Do you feel that your code has any bottlenecks that you were not able to chip away at?
+    No, my program goes faster than the program from cs50 staff :)
+
+

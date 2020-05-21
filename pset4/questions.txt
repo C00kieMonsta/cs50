@@ -1,0 +1,88 @@
+0.  How many different colors does each format support?
+    GIF: 8 bits per pixel, hence 256 colors for each frame
+    BMP: The number of bits per pixel can vary 1, 4, 8, 16, 24 and 32 bits.
+        - if 1 bit per pixel => 2 different colors
+        - if 4 bits per pixel => 16 different colors
+        - if 8 bits per pixel => 256 different colors
+        - if 16 bits per pixel => 65000 different colors
+        - if 24 bits per pixel => 16.7 million different colors
+        - if 32 bits per pixel => 4.29 billion different colors
+    JPEG: 24 bits per pixel => 16.7 million different colors
+    PNG: it supports 24 bits per pixel (24 bit RGB but also a 32-bit RGBA which enables you to have opacity in your image)
+    
+1.  Which of the formats supports animation?
+    The GIF format
+
+2.  What’s the difference between lossy and lossless compression?
+    - Lossy compression : with the lossy compressing, not all the information of the file is encoded, 
+        so when it is recovered into an image, it will not be an exact representation of the original. 
+    
+    - Lossless : with the lossless compressing, all the information of the file is encoded, so when the image is decompressed, 
+        it will be an exact representation of the original. 
+
+3.  Which of these formats is lossy-compressed?
+    The JPEG format
+
+4.  What happens, technically speaking, when a file is deleted on a FAT file system?
+    When a file is deleted on a FAT file system by the operating system, the data stored in the Data Area 
+    remains intact until it is overwritten. So in fact the operating system frees the pointer to the file 
+    in order to delete the file.
+
+5.  What can someone like you do to ensure (with high probability) that files you delete cannot be recovered?
+    Create plenty of files in order to overwrite the data that has been abandoned.
+
+6.  What’s stdint.h?
+    It's a header file of the C99 standard library providing a set of integer datatypes and some macros.
+
+7.  What’s the point of using uint8_t, uint32_t, int32_t, and uint16_t in a program?
+    These types are fixed sized datatypes which can be used on every computer regardless of the architecture of the 
+    computer. The size of integers may be variable on different processors, so some code may result in a 32-bit integer 
+    with one compiler but a 16-bit integer with another one.
+    
+8.  How many bytes is a BYTE, a DWORD, a LONG, and a WORD, respectively? 
+(Assume a 32-bit architecture like the CS50 Appliance.)
+    -BYTE = 1 byte
+    -DWORD = 4 bytes
+    -LONG = 4 bytes
+    -WORD = 2 bytes
+
+
+9.  What (in ASCII, decimal, or hexadecimal) must the first two bytes of any BMP file be? 
+(Leading bytes used to identify file formats (with high probability) are generally called "magic numbers.)"
+    'B' and 'M' which are both 1-byte
+
+
+10. What’s the difference between bfSize and biSize?
+    - bfSize : The number of bytes of the bitmap file
+    - biSize : The number of bytes required by the BITMAPINFOHEADER structure
+
+11. What does it mean if biHeight is negative?
+    It leans that the bitmap is a top-down DIB, which means that its rows are stored in top-down order.
+
+12. What field in BITMAPINFOHEADER specifies the BMP’s color depth (i.e., bits per pixel)?
+    The biBitCount, it specifies the number of bits per pixel.
+
+13. Why might fopen return NULL in copy.c:37?
+    It might return NULL if it can't create the outptr to the outfile. For exemple 
+    if the computer is out of memory or in case if the user has no permission on the file.
+
+14. Why is the third argument to fread always 1 in our code?
+    Because the function fread() reads 1 objects at a time.
+
+15. What value does copy.c:70 assign padding if bi.biWidth is 3?
+    Padding = 3, padding is necessary beacause the scanline must be a multiple of 4.
+    
+
+16. What does fseek do?
+    Skips over any padding and looks for the next pixel.
+    But what fseek() does is that it alters the position in an opened file.
+
+17. What is SEEK_CUR?
+    It is a constant which will tell to the fseek function to begin searching at the 
+    current location of the opened file.
+
+
+18. Whodunit?
+    Rob Bowden
+
+
